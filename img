@@ -1,0 +1,14 @@
+#!/bin/zsh
+# img: make a copied web image pasteable in Apple Notes.
+# Browsers copy an image with an HTML link alongside it; Notes uses the link
+# and shows a blue "?". This keeps only the picture on the clipboard.
+
+for type in PNGf TIFF JPEG; do
+  if osascript -e "set the clipboard to (the clipboard as «class $type»)" 2>/dev/null; then
+    echo "Clipboard ready: paste into Notes (⌘V)."
+    exit 0
+  fi
+done
+
+echo "No image on the clipboard. Copy an image first." >&2
+exit 1
