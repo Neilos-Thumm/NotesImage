@@ -1,4 +1,4 @@
-# img
+# Notes Image
 
 Makes images copied from a browser pasteable in Apple Notes.
 
